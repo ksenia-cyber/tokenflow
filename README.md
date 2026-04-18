@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💸 TokenFlow
 
-## Getting Started
+> Die Haushaltskasse fürs AI-Zeitalter. Tokens verwalten wie Strom oder Wasser.
 
-First, run the development server:
+**Live:** https://tokenflow-ruddy.vercel.app
+
+TokenFlow ist ein Konzept- & MVP-Prototyp für ein Token-Management-Tool, das Familien dabei hilft, den AI-Verbrauch ihrer Smart-Geräte, Autos, Wearables und Kinder-Tablets im Blick zu behalten — genauso wie heute Strom oder Wasser.
+
+## Features
+
+- **Live-Dashboard** mit Echtzeit-Counter für den Haushaltsverbrauch
+- **Familien-Profile** mit eigenen Monatsbudgets pro Mitglied (inkl. Zeitfenster für Kinder)
+- **Geräte-Manager** mit Kategorie-Filter (Smart Home, Mobilität, Arbeit, Entertainment, Wearable, Kinder)
+- **Verbrauchs-Charts** (24h-Kurve + Wochentrend) mit Prognose-Overlay
+- **Smart Alerts**: Leck-Erkennung, Budget-Warnung, Erfolgs-Events
+- **CO₂- & Kosten-Hochrechnung** in Euro und Gramm CO₂
+
+## Stack
+
+- Next.js 16 (App Router) + React 19 + TypeScript
+- Tailwind CSS v4 für Styling, dunkles Theme mit Gradient-Accents
+- Recharts für Daten-Visualisierung
+- Deployment: Vercel
+
+## Lokal starten
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+→ http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Bauen & Deployen
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+vercel --prod
+```
 
-## Learn More
+## Projektstruktur
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+  layout.tsx       # Root-Layout, Meta-Tags (deutsch)
+  page.tsx         # Single-Page-App mit allen Sections
+  globals.css      # Theme, Glass-Effekt, Gradients
+components/
+  Hero.tsx         # Live-Counter + Vision-Statement
+  StatStrip.tsx    # Haushalts-Gesamtbudget + Euro/CO₂
+  UsageChart.tsx   # Recharts (24h + Wochentrend)
+  FamilyPanel.tsx  # Familien-Profile mit Budget-Bars
+  DevicesGrid.tsx  # Geräte-Grid mit Filter
+  AlertsFeed.tsx   # Smart-Alerts
+  Principles.tsx   # 6 Konzept-Prinzipien
+  Footer.tsx
+lib/
+  data.ts          # Demo-Daten + Helpers (tokensToEuro, tokensToCO2g)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Konzept-Hintergrund
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Die ausführliche Vision, Design-Prinzipien und MVP-Überlegungen findest du in der Notion-Brainstorming-Seite (intern, im Workspace "Claude Code").
 
-## Deploy on Vercel
+Kernidee: In wenigen Jahren werden AI-Tokens so alltäglich wie Strom oder Wasser. Jedes smarte Gerät, jede App, jedes Kind verbraucht sie. TokenFlow ist das Haushalts-Dashboard für dieses Zeitalter.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Status
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MVP / Konzept-Demo. Alle Daten sind Beispiel-Daten. Kein Backend, kein Login, keine Persistenz.
+
+## Lizenz
+
+MIT — für Demo- und Lernzwecke.
